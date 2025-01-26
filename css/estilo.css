@@ -3,3 +3,18 @@
 	font-size: 14px; 
 }
 
+#container{
+	display: grid;
+	margin-top: 18vh;
+	margin-bottom: 18vh;
+	margin-left: 35vh;
+	margin-right: 35vh;
+}
+
+a {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
