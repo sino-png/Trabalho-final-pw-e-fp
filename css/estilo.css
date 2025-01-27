@@ -11,10 +11,6 @@
 	margin-right: 35vh;
 }
 
-a {
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-left: 10px;
-	padding-right: 10px;
+body{
+	background-image: url(../imagens/lilas.png);
 }
-

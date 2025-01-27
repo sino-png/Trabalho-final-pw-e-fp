@@ -8,3 +8,9 @@ function configurarMemoriaSecundaria() {
         localStorage.setItem('funcionarios', JSON.stringify(funcionarios))
     }
 }
+
+function Entrar() {
+    if ($("#formInicio").valid()){
+        window.location.href = "#"
+    }
+}
