@@ -1,13 +1,13 @@
 function configurarMemoriaSecundaria() {
-  if (!localStorage.funcionarios) {
-    var funcionarios = []; 
-    localStorage.setItem('funcionarios', JSON.stringify(funcionarios))
+  if (!localStorage.usuarios) {
+    var usuarios = []; 
+    localStorage.setItem('usuarios', JSON.stringify(usuarios))
   }
 }
 
 function cadastrar(){
   if ($("#formularioDados").valid()) {
-    var funcionarios = JSON.parse(localStorage.getItem('funcionarios'))
+    var usuarios = JSON.parse(localStorage.getItem('usuarios'))
     
     var funcionario = new Object();
 
@@ -16,33 +16,37 @@ function cadastrar(){
     funcionario.cpf = document.getElementById("cpf").value;
     funcionario.sal = parseFloat(document.getElementById("sal").value);
     funcionario.com = parseInt(document.getElementById("com").value);
+    // 1- funcionário; 2: usuário comum
+    funcionario.cargo = 1; 
     funcionario.vendas = 0;
 
-    if (verificarCpf(funcionario.cpf, funcionarios)) {
+    if (verificarCpf(funcionario.cpf, usuarios)) {
       alert ("Este CPF já está cadastrado")
     }else{
-      if (verificarUsuario(funcionario.user, funcionarios)){
+      if (verificarUsuario(funcionario.user, usuarios)){
         alert ("Este nome de usuário já está sendo usado")
       }else{
-        var posicao = funcionarios.length;
-        funcionarios[posicao] = funcionario;
+        var posicao = usuarios.length;
+        usuarios[posicao] = funcionario;
 
-        localStorage.setItem('funcionarios', JSON.stringify(funcionarios));
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
         alert ("Cadastro realizado com sucesso <3")
+
+        window.location.href = "index.html"
       }
     }
     
   }
 }
 
-function verificarCpf(cpf, funcionarios) {
+function verificarCpf(cpf, usuarios) {
   var i = 0; 
   var repete = false;
-  var quantidade = funcionarios.length;
+  var quantidade = usuarios.length;
 
   for (i=0; i < quantidade; i++) {
-    if (cpf == funcionarios[i].cpf) {
+    if (cpf == usuarios[i].cpf) {
       repete = true
     }
   }
@@ -50,13 +54,13 @@ function verificarCpf(cpf, funcionarios) {
   return repete
 }
 
-function verificarUsuario(user, funcionarios) {
+function verificarUsuario(user, usuarios) {
   var i = 0;
   var repete = false;
-  var quantidade = funcionarios.length;
+  var quantidade = usuarios.length;
 
   for (i=0; i < quantidade; i++) {
-    if (user == funcionarios[i].user) {
+    if (user == usuarios[i].user) {
       repete = true
     }
   }
