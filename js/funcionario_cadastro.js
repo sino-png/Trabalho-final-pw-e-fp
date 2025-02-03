@@ -18,7 +18,6 @@ function cadastrar(){
     funcionario.com = parseInt(document.getElementById("com").value);
     // 1- funcionário; 2: usuário comum
     funcionario.cargo = 1; 
-    funcionario.vendas = 0;
 
     if (verificarCpf(funcionario.cpf, usuarios)) {
       alert ("Este CPF já está cadastrado")

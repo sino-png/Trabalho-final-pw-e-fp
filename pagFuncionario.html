@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <meta charset="utf-8" lang="pt-br">
+    <title>Página do Funcionário</title>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body onload="configurarMemoriaSecundaria()" onload="exibirTabela()">
+    <div class="container" class="collumn-wrap">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="pagFuncionario.html">Página do Funcionário</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Principal</a>
+                    <a class="nav-item nav-link" href="biblioteca.html">Biblioteca</a>
+                    <a class="nav-item nav-link" href="livroCadastro.html">Cadastrar novo livro</a>
+                    <a class="nav-item nav-link" href="funcionario_cadastro.html">Cadastrar funcionário</a>
+                    <a class="nav-item nav-link" href="#">Leitores</a>
+                    <a class="nav-item nav-link" href="index.html">Mudar de Conta</a>
+                </div>
+            </div>
+        </nav>
+
+        <div>
+            <form action="#" method="post">
+                <fieldset>
+                    <div class="row form-group">
+                        <div class="col-lg-6">
+                            <label for="filtro">Categorizar</label>
+                            <select name="filtro" id="filtro" class="form-control">
+                                <option value="0">exibir todos</option>
+                                <option value="1">livros com todos os exemplares emprestados</option>
+                                <option value="2">livros com atraso</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="pesquisa">Pesquisar</label>
+                            <input type="text" value="" id="pesquisa" name="pesquisa" class="form-control" placeholder="Digite o título do livro">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.js"></script>
+	<script type="text/javascript" src="js/pagFuncionario.js"></script>
+</body>
+
+</html>

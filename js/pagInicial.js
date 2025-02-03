@@ -40,10 +40,31 @@ function verificarUsuario(login, senha, usuarios) {
 
     var posicao = 0;
     for (posicao = 0; posicao < quantidade; posicao++) {
-        if ((login == usuarios[posicao].login) && (senha == usuarios[posicao].senha)) {
+        if ((login == usuarios[posicao].user) && (senha == usuarios[posicao].senha)) {
             resultado = true;
             usuarios[posicao].pontuacao = 0
         }
     }
     return resultado;
 }
+
+$("#formInicio").validate(
+    {
+        rules: {
+            login: {
+                required: true,
+            },
+            senha: {
+                required: true
+            }
+        },
+        messages: {
+            login: {
+                required: "Campo obrigatório",
+            },
+            senha: {
+                required: "Campo obrigatório"
+            }
+        }
+    }
+);
