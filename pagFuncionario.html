@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="css/estilo.css">
 </head>
 
-<body onload="configurarMemoriaSecundaria()" onload="exibirTabela()">
-    <div class="container" class="collumn-wrap">
+<body onload="configurarMemoriaSecundaria()">
+    <div class="container" class="collumn-wrap"  >
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="pagFuncionario.html">Página do Funcionário</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -47,6 +47,22 @@
                 </fieldset>
             </form>
         </div>
+        <button type="button" class="btn btn" onclick="exibir()">Exibir Tabela</button>
+
+        <table id="tabelaDados" class="table table-light thead-dark">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Código</th>
+                    <th>Autor</th>
+                    <th>Editora</th>
+                    <th>Volume</th>
+                    <th>Situação</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
     <script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>

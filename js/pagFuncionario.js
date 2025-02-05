@@ -5,6 +5,27 @@ function configurarMemoriaSecundaria(){
     }
 }
 
+function exibir(){
+    var filtro = parseInt(document.getElementById("filtro").value);
+    var livros = JSON.parse(localStorage.getItem('livros'));
+
+    if (filtro == 0) {
+        exibirTabela()
+    }else{
+        if (filtro == 1) {
+            apagarLinhas();
+            var i = 0;
+            var quantidade = livros.length;
+
+            for (i = 0; i < quantidade; i++){
+                if (livros[i].sit == 1) {
+                    imprimirLinhaTabela()
+                }
+            }
+        }
+    }
+}
+
 // imprimir e exibir tabela dos livros
 function imprimirLinhaTabela(livro) {
 	//length é o comprimento do vetor, ou seja, a quantidade de elementos
@@ -12,13 +33,26 @@ function imprimirLinhaTabela(livro) {
 
 	var linha = tabelaDados.insertRow(1);
 
-	var colunaIde = linha.insertCell(0);
-	var colunaDesc = linha.insertCell(1);
-	var colunaVagas = linha.insertCell(2);
+	var colunaTitulo = linha.insertCell(0);
+	var colunaCod = linha.insertCell(1);
+	var colunaAutor = linha.insertCell(2);
+    var colunaEditora = linha.insertCell(3);
+    var colunaVol = linha.insertCell(4);
+    var colunaSit = linha.insertCell(5);
 
-	colunaIde.innerText = livro.ide;
-	colunaDesc.innerText = livro.desc;
-	colunaVagas.innerText = livro.vagas;
+	colunaTitulo.innerText = livro.titulo;
+	colunaCod.innerText = livro.cod;
+	colunaAutor.innerText = livro.autor;
+    colunaEditora.innerText = livro.editora;
+    colunaVol.innerText = livro.vol;
+    if (livro.sit == 0) {
+        colunaSit.innerText = "disponível";
+    }else{
+        if (livro.sit == 1){
+            colunaSit.innerText = "emprestado";
+        }
+    }
+    
 
 }
 
@@ -33,25 +67,6 @@ function exibirTabela() {
 	for (posicao = 0; posicao < quantidade; posicao++) {
 		imprimirLinhaTabela(livros[posicao])
 	}
-}
-
-//form compras
-function comprar() {
-    if ($("#formFiltro").valid()) {
-        var filtro = document.getElementById("filtro")
-
-        var compras = JSON.parse(localStorage.getItem('compras'));
-
-        var quantidade = compras.length; 
-        var i = 0;
-
-        for ( i = 0; i < quantidade; i++) {
-            if (filtro == compras[i].idec) {
-               exibirTabelaCompra() 
-            }
-        }
-    }
-
 }
 
 function apagarLinhas() {
@@ -72,6 +87,5 @@ function apagarLinhas() {
 
 function excluirDados() {
 	localStorage.removeItem('livros');
-    localStorage.removeItem('compras');
 	apagarLinhas();
 }
